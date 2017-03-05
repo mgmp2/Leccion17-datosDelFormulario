@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulario</title>
+</head>
+<body>
+  <h3>Datos del Formulario</h3>
+	<form id="frm1" >
+
+		Nombre: <input type="text" name="name" id="name"><br>
+            <span id="errorName" type="errorE" style="color: blue"></span>
+            <br><br>
+		Mail: <input type="email" name="email" id="email"><br>
+          <span id="errorEmail" type="errorE" style="color: blue"></span>
+          <br><br>
+	</form>
+	<button onclick="myFunction();">Mostrar</button>
+
+	<p id="mostrarNombre"></p>
+	<p id="mostrarMail"></p>
+
+	<script>
+		function myFunction() {
+      var nom = document.getElementById('name').value;
+      var cor= document.getElementById('email').value;
+      var errorCor = document.getElementById('errorEmail');
+      var errorNom = document.getElementById('errorName');
+      if(nom && cor){
+        errorCor.innerHTML = "";
+        errorNom.innerHTML = "";
+        document.getElementById('mostrarNombre').innerHTML = "Nombre: " + nom;
+        document.getElementById('mostrarMail').innerHTML =   "Correo:" +cor;
+      }
+      if(!cor){
+        errorNom.innerHTML = "";
+        errorCor.innerHTML = "Escribir Correo";
+
+
+      }if(!nom){
+        errorNom.innerHTML = "Escrbir Nombre";
+        errorCor.innerHTML = "";
+      }
+      if(!nom && !cor){
+        errorCor.innerHTML = "Escribir Correo";
+        errorNom.innerHTML = "Escrbir Nombre";
+
+      }
+		}
+	</script>
+</body>
+</html>
